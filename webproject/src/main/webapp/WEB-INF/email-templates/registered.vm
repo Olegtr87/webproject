@@ -38,9 +38,9 @@
                             <br /><br />
                             <i>or you copy and paste the following link in your browser's URL box</i>
                             <br /><br />
- 
+
                             User name parameter from EmailController -  $userName
- 
+
                             <br /></td>
                     </tr>
                     <tr>
@@ -69,3 +69,4 @@
     </table>
 </div>
 </body>
+

@@ -1,5 +1,5 @@
 package ru.javastudy.mvcHtml5Angular.mvc.email;
- 
+
 import org.apache.velocity.app.VelocityEngine;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.javamail.JavaMailSender;
@@ -7,16 +7,16 @@ import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.mail.javamail.MimeMessagePreparator;
 import org.springframework.stereotype.Service;
 import org.springframework.ui.velocity.VelocityEngineUtils;
- 
+
 import javax.mail.internet.MimeMessage;
 import java.util.Date;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ExecutorService;
- 
+
 @Service
 public class EmailService {
- 
+
     /*Email From*/
     public static final String FROM = "from";
     /*Email To*/
@@ -27,27 +27,27 @@ public class EmailService {
     public static final String BCC_LIST = "bccList";
     /*Email CCC*/
     public static final String CCC_LIST = "ccList";
- 
+
     @Autowired
     private JavaMailSender mailSender; //see application-context.xml
- 
+
     @Autowired
     private VelocityEngine velocityEngine; //see application-context.xml
- 
- 
+
+
     public boolean sendEmail (final String templateName, final Map<String, Object> model) {
         boolean res = false;
         try {
             MimeMessagePreparator preparator = new MimeMessagePreparator() {
- 
+
                 @Override
                 public void prepare(MimeMessage mimeMessage) throws Exception {
                     String from = (String) model.get(FROM);
                     String to = (String) model.get(TO);
                     String subject = (String) model.get(SUBJECT);
- 
+
                     List<String> bccList = (List<String>) model.get(BCC_LIST);
-                    //¬¿∆ÕŒ! œŒ—“¿¬‹“≈  Œƒ»–Œ¬ ” UTF-8 »À» —ŒŒ¡Ÿ≈Õ»ﬂ ¡”ƒ”“ ?????? ??
+                    //–†‚Äô–†—í–†‚Äì–†—ú–†—õ! –†—ü–†—õ–†–é–†—û–†—í–†‚Äô–†¬¨–†—û–†‚Ä¢ –†—ô–†—õ–†‚Äù–†ÔøΩ–†¬†–†—õ–†‚Äô–†—ô–†–à UTF-8 –†ÔøΩ–†‚Ä∫–†ÔøΩ –†–é–†—õ–†—õ–†‚Äò–†¬©–†‚Ä¢–†—ú–†ÔøΩ–†–á –†‚Äò–†–à–†‚Äù–†–à–†—û ?????? ??
                     MimeMessageHelper message = new MimeMessageHelper(mimeMessage, "UTF-8"); //ENCODING IMPORTANT!
                     message.setFrom(from);
                     message.setTo(to);
@@ -58,23 +58,23 @@ public class EmailService {
                             message.addBcc(bcc);
                         }
                     }
- 
+
                     model.put("noArgs", new Object());
                     String text = VelocityEngineUtils.mergeTemplateIntoString(
                             velocityEngine, templateName, "UTF-8", model);
- 
+
                     message.setText(text,true);
                 }
             };
- 
+
             mailSender.send(preparator);
             res = true;
- 
+
         } catch (Exception ex) {
             ex.printStackTrace();
         }
- 
+
         return res;
     }
- 
+
 }

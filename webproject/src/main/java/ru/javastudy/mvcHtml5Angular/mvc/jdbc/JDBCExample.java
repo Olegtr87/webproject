@@ -1,5 +1,5 @@
 package ru.javastudy.mvcHtml5Angular.mvc.jdbc;
- 
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.PreparedStatementCreator;
@@ -7,7 +7,7 @@ import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
 import ru.javastudy.mvcHtml5Angular.mvc.bean.DBLog;
 import ru.javastudy.mvcHtml5Angular.mvc.bean.User;
- 
+
 import javax.annotation.PostConstruct;
 import javax.sql.DataSource;
 import java.sql.Connection;
@@ -15,23 +15,20 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
- 
-/**
- * Created for JavaStudy.ru on 24.02.2016.
- */
+
 @Repository
 public class JDBCExample {
- 
+
     @Autowired
     DataSource dataSource; //look to application-context.xml bean id='dataSource' definition
- 
+
     private JdbcTemplate jdbcTemplate;
     @PostConstruct
     public void init() {
         System.out.println("JDBCExample postConstruct is called. datasource = " + dataSource);
         jdbcTemplate = new JdbcTemplate(dataSource);
     }
- 
+
     //JDBC TEMPLATE INSERT EXAMPLE
     public boolean insertLog(DBLog log) {
         System.out.println("JDBCExample: log(final String log) is called");
@@ -45,7 +42,7 @@ public class JDBCExample {
         });
         return true;
     }
- 
+
     //JDBC TEMPLATE SELECT EXAMPLE
     public List<DBLog> queryAllLogs() {
         System.out.println("JDBCExample: queryAllLogs() is called");
@@ -61,7 +58,7 @@ public class JDBCExample {
         });
         return dbLogList;
     }
- 
+
     public List<User> queryAllUsers() {
         System.out.println("JDBCExample: queryAllUsers is called");
         final String QUERY_SQL = "SELECT * FROM USER ORDER BY IDUSER";
@@ -77,7 +74,7 @@ public class JDBCExample {
         });
         return userList;
     }
- 
+
     //JDBC TEMPLATE DELETE EXAMPLE
     public boolean deleteUSER(int iduser) {
         System.out.println("JDBCExample: deleteUSER called");
@@ -91,7 +88,7 @@ public class JDBCExample {
             return false;
         }
     }
- 
+
     //JDBC TEMPLATE UPDATE EXAMPLE
     public boolean updateUserEnable(User u, boolean enable)  {
         System.out.println("JDBCExample: updateUserEnable called");
@@ -104,6 +101,6 @@ public class JDBCExample {
             return false;
         }
     }
- 
- 
+
+
 }

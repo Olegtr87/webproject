@@ -1,21 +1,24 @@
 <!DOCTYPE html>
- 
+
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@ taglib prefix="page" tagdir="/WEB-INF/tags" %>
- 
+
 <page:template>
     <jsp:attribute name="title">Javastudy.ru MVC_HTML5_Angular</jsp:attribute>
- 
+
     <jsp:body>
         <!-- Page Content -->
         <div class="container">
- 
+
             <!-- Page Heading/Breadcrumbs -->
             <div class="row">
                 <div class="col-lg-12">
+                    <h1 class="page-header">Contact
+                        <small>Java Mail API and Spring Mail</small>
+                    </h1>
                     <ol class="breadcrumb">
                         <li><a href="index.html">Home</a>
                         </li>
@@ -24,19 +27,22 @@
                 </div>
             </div>
             <!-- /.row -->
- 
+
             <!-- Content Row -->
             <div class="row">
                 <!-- Contact Details Column -->
                 <div class="col-md-4">
-                    <!--
-                    <c:if test="${pageContext.request.getParameter('resultSending') == 'true'}">
-                        <h3 style="color:green">Email already send!</h3>
-                    </c:if>
-                    <c:if test="${pageContext.request.getParameter('resultSending') == 'false'}">
-                        <h3 style="color:red">Email wasn't send!</h3>
-                    </c:if>-->
-                    
+                    <h3>Contact Details</h3>
+                    <p>
+                        3481 Melrose Place<br>Beverly Hills, CA 90210<br>
+                    </p>
+                    <p><i class="fa fa-phone"></i>
+                        <abbr title="Phone">P</abbr>: (123) 456-7890</p>
+                    <p><i class="fa fa-envelope-o"></i>
+                        <abbr title="Email">E</abbr>: <a href="mailto:name@example.com">name@example.com</a>
+                    </p>
+                    <p><i class="fa fa-clock-o"></i>
+                        <abbr title="Hours">H</abbr>: Monday - Friday: 9:00 AM to 5:00 PM</p>
                     <ul class="list-unstyled list-inline list-social-icons">
                         <li>
                             <a href="#"><i class="fa fa-facebook-square fa-2x"></i></a>
@@ -96,13 +102,13 @@
                         <button type="submit" class="btn btn-primary">Send Message</button>
                     </form:form>
                 </div>
- 
+
             </div>
             <!-- /.row -->
- 
+
             <hr>
         </div>
         <!-- /.container -->
     </jsp:body>
- 
+
 </page:template>

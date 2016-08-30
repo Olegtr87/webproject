@@ -3,7 +3,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@ taglib prefix="page" tagdir="/WEB-INF/tags" %>
- 
+
 <page:template>
     <jsp:body>
         <c:url value="/jdbcQueryAllUsers" var="jdbcQueryAllUsers" />
@@ -11,10 +11,10 @@
         <c:url value="/jdbcSelectLogs" var="jdbcSelectLogs" />
         <c:url value="/jdbcDelete" var="jdbcDelete" />
         <c:url value="/jdbcUpdate" var="jdbcUpdate" />
- 
+
         <!-- Page Content -->
         <div class="container">
- 
+
             <!-- Page Heading/Breadcrumbs -->
             <div class="row">
                 <div class="col-lg-12">
@@ -29,13 +29,13 @@
                 </div>
             </div>
             <!-- /.row -->
- 
+
             <!-- Content Row -->
             <div class="row">
                 <!-- Sidebar Column -->
                 <div class="col-md-3">
                     <div class="list-group">
- 
+
                         <a href="index.html" class="list-group-item">Home</a>
                         <a href="${jdbcQueryAllUsers}" class="list-group-item">get all users</a>
                         <a href="${jdbcInsert}/logstring/jdbcTestLogString" class="list-group-item">Jdbc insert</a>
@@ -59,14 +59,14 @@
                         </c:if>
                     </c:if>
                 </div>
-                </form>
             </div>
             <!-- /.row -->
- 
+
             <hr>
- 
+
         </div>
         <!-- /.container -->
- 
+
     </jsp:body>
 </page:template>
+
