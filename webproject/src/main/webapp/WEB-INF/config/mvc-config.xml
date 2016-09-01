@@ -65,5 +65,14 @@
         <mvc:resources mapping="/resources/**" location="/resources/themeBlue" />
         <mvc:resources mapping="/resources/**" location="/resources/themeGreen" />
      -->
+     
+     <mvc:interceptors>
+        <mvc:interceptor>
+            <mvc:mapping path="/interceptorCall/*"/>
+            <!--need to use ' /** ' not ' /* ' if you want to intercept all requests.-->
+            <!--<mvc:mapping path="/**"/>-->
+            <bean class="ru.javastudy.mvcHtml5Angular.mvc.interceptors.SiteInterceptor"/>
+        </mvc:interceptor>
+    </mvc:interceptors>
  
 </beans>
