@@ -36,6 +36,9 @@
 <c:url value="/email.html" var="email" />
 <c:url value="/rest.html" var="rest" />
 <c:url value="/orm.html" var="orm" />
+<c:url value="/cookieView.html" var="cookieView" />
+<c:url value="/error.html" var="error" />
+<c:url value="/scope.html" var="scope" />
 
 <!-- Navigation -->
 <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
@@ -72,6 +75,15 @@
                         </li>
                         <li>
                             <a href="${orm}">Spring MVC и Hibernate 5</a>
+                        </li>
+                        <li>
+                            <a href="${cookieView}">Работа с cookie</a>
+                        </li>
+                        <li>
+                            <a href="${error}">Страница ошибки</a>
+                        </li>
+                        <li>
+                            <a href="${scope}">Сохранение объекта в сессии</a>
                         </li>
                     </ul>
                 </li>
