@@ -4,6 +4,7 @@
        xmlns:mvc="http://www.springframework.org/schema/mvc"
        xmlns:context="http://www.springframework.org/schema/context"
        xmlns:tx="http://www.springframework.org/schema/tx"
+       xmlns:security="http://www.springframework.org/schema/security"
        xsi:schemaLocation="http://www.springframework.org/schema/beans
        http://www.springframework.org/schema/beans/spring-beans.xsd
        http://www.springframework.org/schema/mvc
@@ -11,8 +12,12 @@
 	   http://www.springframework.org/schema/context
 	   http://www.springframework.org/schema/context/spring-context.xsd
 	   http://www.springframework.org/schema/tx
-       http://www.springframework.org/schema/tx/spring-tx.xsd">
+       http://www.springframework.org/schema/tx/spring-tx.xsd
+       http://www.springframework.org/schema/security
+       http://www.springframework.org/schema/security/spring-security.xsd">
  
+ 	<!--Spring security enabled annotations-->
+    <security:global-method-security pre-post-annotations="enabled" secured-annotations="enabled" jsr250-annotations="enabled"/>
  
     <!-- context:component-scan This tag will scan @Component, @Repository, @Service, @Controller
          and also resolves @Autowired and @Qualifier -->
@@ -50,16 +55,20 @@
         <property name="location" value="/WEB-INF/config/excel-pdf-config.xml"/>
     </bean>
  
-    <mvc:view-controller path="/index.html" view-name="/index"/>
-    <mvc:view-controller path="/about.html" view-name="/about/about"/>
-    <mvc:view-controller path="/file.html" view-name="/file/file"/>
-    <mvc:view-controller path="/jdbc.html" view-name="/jdbc/jdbc"/>
-    <mvc:view-controller path="/email.html" view-name="/email/email"/>
-    <mvc:view-controller path="/rest.html" view-name="/rest/rest"/>
-    <mvc:view-controller path="/orm.html" view-name="/orm/orm"/>
-    <mvc:view-controller path="/jstl.html" view-name="/jstl/jstl"/>
-    <mvc:view-controller path="/scope.html" view-name="/scope/scope"/>
-    <mvc:view-controller path="/cookieView.html" view-name="/cookie/cookieView"/>
+    <mvc:view-controller view-name="/index" path="/"/> 
+    <mvc:view-controller view-name="/index" path="/index.html"/> 
+    <mvc:view-controller view-name="/form/login" path="/login.html"/> 
+    <mvc:view-controller view-name="/about/about" path="/about.html"/> 
+    <mvc:view-controller view-name="/file/file" path="/file.html"/> 
+    <mvc:view-controller view-name="/jdbc/jdbc" path="/jdbc.html"/> 
+    <mvc:view-controller view-name="/email/email" path="/email.html"/>
+    <mvc:view-controller view-name="/rest/rest" path="/rest.html"/> 
+    <mvc:view-controller view-name="/orm/orm" path="/orm.html"/> 
+    <mvc:view-controller view-name="/jstl/jstl" path="/jstl.html"/> 
+    <mvc:view-controller view-name="/scope/scope" path="/scope.html"/> 
+    <mvc:view-controller view-name="/cookie/cookieView" path="/cookie.html"/> 
+    <mvc:view-controller view-name="/security/security" path="/security.html"/> 
+    <mvc:view-controller view-name="/security/admin" path="/security/admin.html"/>
  
  
     <!-- Static Resources Configuration (get access to static sources such as CSS and JavaScript files) -->
