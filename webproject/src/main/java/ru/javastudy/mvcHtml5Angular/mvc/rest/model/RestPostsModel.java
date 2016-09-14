@@ -1,5 +1,8 @@
-package ru.javastudy.mvcHtml5Angular.mvc.rest;
+package ru.javastudy.mvcHtml5Angular.mvc.rest.model;
 
+/**
+ * Created for JavaStudy.ru on 28.02.2016.
+ */
 public class RestPostsModel {
 
     private String userId;

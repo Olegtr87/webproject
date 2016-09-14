@@ -6,10 +6,15 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
+import ru.javastudy.mvcHtml5Angular.mvc.rest.model.RestPostsModel;
+import ru.javastudy.mvcHtml5Angular.mvc.rest.model.RestUserModel;
 
 import java.util.Arrays;
 import java.util.List;
 
+/**
+ * Created for JavaStudy.ru on 28.02.2016.
+ */
 @RestController //will add automatically the @ResponseBody annotation to all methods
 public class RestTemplateController {
 
@@ -63,6 +68,13 @@ public class RestTemplateController {
         restTemplate.delete(EXTERNAL_REST_URL +"/posts/" + postId);
         System.out.println("@RestTemplateControllerExample deletePostByID is called");
 
+    }
+
+    @ExceptionHandler
+    @ResponseStatus(value = HttpStatus.FORBIDDEN,reason="FORBIDDEN ACCESS (PROVIDE YOUR CUSTOM REASON HERE)")
+    public void handleException(Exception ex) {
+        System.out.println("@RestTemplateControllerExample handleException");
+        System.out.println(ex);
     }
 }
 
