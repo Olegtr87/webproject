@@ -4,3 +4,7 @@ webproject/target/
 webproject/.project
 webproject/.classpath
 RemoteSystemsTempFiles/.project
+.recommenders/
+calc/.settings/
+calc/.project
+calc/.classpath
